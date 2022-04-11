@@ -1,0 +1,39 @@
+{
+  "title": "MetaDex",
+  "titleTemplate": "%s | Dex",
+  "description": "xxxx",
+  "favicon": "/favicon.ico",
+  "additionalMetaTags": [
+    {
+      "property": "application-name",
+      "content": "MetaDex"
+    },
+    {
+      "name": "viewport",
+      "content": "maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    },
+    {
+      "name": "keywords",
+      "content": "Cardano, Bridge, Multichain, anyswap, EVM, Non-Evm, MCG, Chain, Blockchain, Custody, Huobi, BTC, USDT, DeFi, Binance"
+    }
+  ],
+  "twitter": {
+    "cardType": "summary",
+    "handle": "MetaDex",
+    "site": "MetaDex"
+  },
+  "openGraph": {
+    "type": "website",
+    "site_name": "Cardano's Bridge",
+    "profile": {
+      "firstName": "MetaDex"
+    },
+    "images": [
+      {
+        "url": "https://metadex.xyz/images/home/logo.png",
+        "width": 131,
+        "height": 26
+      }
+    ]
+  }
+}

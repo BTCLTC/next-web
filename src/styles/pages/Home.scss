@@ -1,0 +1,164 @@
+.swap-container {
+  width: 614px;
+  margin-right: 22px;
+  padding: 27px 46px;
+
+  .type-text {
+    margin-left: 12px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 36px;
+  }
+
+  .chain-select {
+    margin-top: 22px;
+  }
+
+  .select-button {
+    border-radius: 36px;
+    padding: 18px 32px;
+    background-color: $background-color;
+    transition: all 0.2s ease-in-out;
+
+    &[aria-expanded='true'] {
+      box-shadow: 0 0 0 1px rgba($blue-color, 0.5);
+    }
+  }
+
+  .token-select {
+    width: 215px;
+  }
+}
+
+.options-wrap {
+  color: #fff;
+  border-radius: 12px;
+  background-color: $background-color;
+  z-index: 100;
+
+  .active {
+    transition: all 0.2s ease-in-out;
+    background-color: $blue-color;
+  }
+}
+
+.info-container {
+  width: 390px;
+  padding: 45px 32px 60px 32px;
+}
+
+.swap-container,
+.info-container {
+  height: 627px;
+  border-radius: 16px;
+  background-color: $primary-color;
+}
+
+.input-wrap {
+  input {
+    width: 190px;
+    padding: 17px 20px;
+    border-radius: 38px;
+    border: 1px solid $blue-color;
+    background-color: $primary-color;
+    box-sizing: content-box;
+    transition: all 0.1s ease-in-out;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($blue-color, 0.5);
+    }
+  }
+}
+
+.balance {
+  padding-bottom: 30px;
+  border-bottom: 1px solid $background-color;
+}
+
+.tips {
+  position: absolute;
+  min-width: 334px;
+  padding: 14px 10px;
+  border-radius: 8px;
+  background-color: #2e399a;
+  font-size: 14px;
+  z-index: 200;
+}
+
+.address-input {
+  width: 100%;
+  padding: 8px 36px 8px 8px;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px solid rgba(#fff, 0.3);
+
+  &:focus {
+    border-color: rgba(#fff, 0.8);
+  }
+}
+
+.input-clear {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.info-token-wrap {
+  width: 240px;
+  height: 40px;
+  margin: 28px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 68px;
+  color: #73d6f1;
+  background-color: rgba($background-color, 0.5);
+
+  .to-icon {
+    margin: 0 32px;
+  }
+}
+
+.notice-container {
+  font-size: 14px;
+  span {
+    color: #73d6f1;
+  }
+
+  ul {
+    padding-left: 16px;
+  }
+
+  li {
+    list-style: disc;
+  }
+}
+
+.wallet-button {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 0;
+  border-radius: 60px;
+  background-color: $blue-color;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba($blue-color, 0.8);
+  }
+
+  &:active {
+    background-color: rgba($blue-color, 0.4);
+  }
+
+  &:disabled {
+    background-color: $display-color;
+  }
+}

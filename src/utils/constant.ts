@@ -3,9 +3,9 @@ import bs58 from "bs58";
 
 export const RPC = 'https://api.devnet.solana.com'
 
-export const programId = new PublicKey('9WkshVdRW9PjRZHZdurf4yFgAyXUgKNSfGMmvd584YZ3')
+export const programId = new PublicKey('5aMgTvyCsE3SUwTJMjbsAGzNfVoJ4NL4Z8bWqRnAxgox')
 
-export const manager = new PublicKey('GAMEZSNM56PeAkw4VKppMLS1rnNfaSyTT1joomT3XkCv')
+export const manager = new PublicKey('7tm3grTbsBAchMfk1bpPDM8vvJA8N33BGMv4ay7NucFr')
 
 export const mint = 'DvD2cEAEaCc2LTCUexritwTQiwFkrbJDhZULZ1NE2YDC'
 

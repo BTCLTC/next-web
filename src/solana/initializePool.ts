@@ -3,7 +3,7 @@ import { SystemProgram, SYSVAR_RENT_PUBKEY } from "@solana/web3.js"
 
 import { get_amm_account_pda, get_liquidity_locker_pda, get_pool_account_pda, get_pool_authority_pda, get_pool_fee_to_pda, get_pool_mint_pda, get_vault_0_pda, get_vault_1_pda } from "../utils"
 import { Ammv2 } from '../amm/ammv2'
-import { manager, mint0, mint1 } from "utils/constant"
+import { mint0, mint1 } from "utils/constant"
 import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID } from "@solana/spl-token"
 
 export const initializePool = async (provider: AnchorProvider, program: Program<Ammv2>) => {
@@ -22,7 +22,7 @@ export const initializePool = async (provider: AnchorProvider, program: Program<
       mint0: mint0,
       mint1: mint1,
       amm: amm_account_pda,
-      ammFeeTo: manager,
+      ammFeeTo: provider.wallet.publicKey,
       pool: pool_account_pda,
       poolAuthority: pool_authority_pda,
       vault0: vault_0_pda,

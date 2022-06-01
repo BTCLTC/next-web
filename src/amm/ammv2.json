@@ -292,7 +292,12 @@
       "name": "swap",
       "accounts": [
         {
-          "name": "poolState",
+          "name": "amm",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
           "isMut": true,
           "isSigner": false
         },
@@ -488,6 +493,6 @@
     }
   ],
   "metadata": {
-    "address": "9WkshVdRW9PjRZHZdurf4yFgAyXUgKNSfGMmvd584YZ3"
+    "address": "3CLss83AjNc9ZgH5Q2Ds3oh7aSzam6g7XJ17oHNrtALs"
   }
 }

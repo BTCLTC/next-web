@@ -292,7 +292,12 @@ export type Ammv2 = {
       "name": "swap",
       "accounts": [
         {
-          "name": "poolState",
+          "name": "amm",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
           "isMut": true,
           "isSigner": false
         },
@@ -783,7 +788,12 @@ export const IDL: Ammv2 = {
       "name": "swap",
       "accounts": [
         {
-          "name": "poolState",
+          "name": "amm",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
           "isMut": true,
           "isSigner": false
         },

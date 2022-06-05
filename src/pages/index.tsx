@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { useMemo, useCallback } from 'react'
+import { useEffect, useMemo, useCallback } from 'react'
 import { m } from 'framer-motion'
 import { AnchorProvider, Program } from '@project-serum/anchor'
 import { Connection } from '@solana/web3.js'
@@ -17,6 +17,7 @@ import {
   addLiquidity,
   removeLiquidity,
   swap,
+  get_amm,
 } from '../solana'
 
 const Home: NextPage = () => {
@@ -36,6 +37,17 @@ const Home: NextPage = () => {
     }
     return null
   }, [provider])
+
+  useEffect(() => {
+    if (program) {
+      get_amm(program).then((amm) => {
+        console.log('amm owner: ', amm.owner.toBase58())
+        console.log('amm feeTo: ', amm.feeTo.toBase58())
+        console.log('amm feeNumerator: ', amm.feeNumerator.toString())
+        console.log('amm feeDenominator: ', amm.feeDenominator.toString())
+      })
+    }
+  }, [program])
 
   const handleClick = useCallback(
     async (fun: string) => {

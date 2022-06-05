@@ -1,12 +1,17 @@
-import { AnchorProvider, BN, Program } from "@project-serum/anchor"
-import { SystemProgram } from "@solana/web3.js"
+import { AnchorProvider, BN, Program } from '@project-serum/anchor'
+import { SystemProgram } from '@solana/web3.js'
 
-import { get_amm_account_pda } from "../utils"
+import { get_amm_account_pda } from '../utils'
 import { Ammv2 } from '../amm/ammv2'
 
-export const initializeAmm = async (provider: AnchorProvider, program: Program<Ammv2>) => {
+export const initializeAmm = async (
+  provider: AnchorProvider,
+  program: Program<Ammv2>
+) => {
   const amm_account_pda = await get_amm_account_pda()
   return await program.methods
+    // 分子：5
+    // 分母：10000
     .initializeAmm(new BN('5'), new BN('10000'))
     .accounts({
       amm: amm_account_pda,

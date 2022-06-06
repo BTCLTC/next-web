@@ -40,12 +40,14 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (program) {
-      get_amm(program).then((amm) => {
-        console.log('amm owner: ', amm.owner.toBase58())
-        console.log('amm feeTo: ', amm.feeTo.toBase58())
-        console.log('amm feeNumerator: ', amm.feeNumerator.toString())
-        console.log('amm feeDenominator: ', amm.feeDenominator.toString())
-      })
+      get_amm(program)
+        .then((amm) => {
+          console.log('amm owner: ', amm.owner.toBase58())
+          console.log('amm feeTo: ', amm.feeTo.toBase58())
+          console.log('amm feeNumerator: ', amm.feeNumerator.toString())
+          console.log('amm feeDenominator: ', amm.feeDenominator.toString())
+        })
+        .catch((e) => {})
     }
   }, [program])
 
@@ -59,37 +61,37 @@ const Home: NextPage = () => {
         const tx = await initializeAmm(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`initializeAmm tx: ${tx}`)
       } else if (fun == 'initializePool') {
         const tx = await initializePool(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`initializePool tx: ${tx}`)
       } else if (fun == 'addLiquidity') {
         const tx = await addLiquidity(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`addLiquidity tx: ${tx}`)
       } else if (fun == 'removeLiquidity') {
         const tx = await removeLiquidity(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`removeLiquidity tx: ${tx}`)
       } else if (fun == 'swap') {
         const tx = await swap(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`swap tx: ${tx}`)
       } else if (fun == 'setAmmFeeRate') {
         const tx = await setAmmFeeRate(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`setAmmFeeRate tx: ${tx}`)
       } else if (fun == 'setAmmFeeTo') {
         const tx = await setAmmFeeTo(provider, program).catch((error) => {
           console.log(error.logs)
         })
-        console.log(tx)
+        console.log(`setAmmFeeTo tx: ${tx}`)
       }
     },
     [provider, program]
@@ -111,11 +113,10 @@ const Home: NextPage = () => {
           setAmmFeeRate
         </button>
         <button
-          disabled={true}
-          className="bg-blue-200 cursor-not-allowed p-3 rounded-md ml-2"
+          className="bg-blue-700 p-3 rounded-md ml-2"
           onClick={() => handleClick('setAmmFeeTo')}
         >
-          setAmmFeeTo（慎点，点了后，就没权限了）
+          setAmmFeeTo
         </button>
       </div>
       <div className="mt-4">

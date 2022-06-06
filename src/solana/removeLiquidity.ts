@@ -1,11 +1,25 @@
-import { AnchorProvider, BN, Program } from "@project-serum/anchor"
+import { AnchorProvider, BN, Program } from '@project-serum/anchor'
 
-import { get_amm_account_pda, get_mint0_ata, get_mint1_ata, get_pool_account_pda, get_pool_authority_pda, get_pool_fee_to_pda, get_pool_mint_ata, get_pool_mint_pda, get_vault_0_pda, get_vault_1_pda } from "../utils"
+import {
+  get_amm_account_pda,
+  get_mint0_ata,
+  get_mint1_ata,
+  get_pool_account_pda,
+  get_pool_authority_pda,
+  get_pool_fee_to_pda,
+  get_pool_mint_ata,
+  get_pool_mint_pda,
+  get_vault_0_pda,
+  get_vault_1_pda,
+} from '../utils'
 import { Ammv2 } from '../amm/ammv2'
-import { auth } from "../utils/constant"
-import { TOKEN_PROGRAM_ID } from "@solana/spl-token"
+import { auth } from '../utils/constant'
+import { TOKEN_PROGRAM_ID } from '@solana/spl-token'
 
-export const removeLiquidity = async (provider: AnchorProvider, program: Program<Ammv2>) => {
+export const removeLiquidity = async (
+  provider: AnchorProvider,
+  program: Program<Ammv2>
+) => {
   const burn_amount = '10000000000000'
 
   const mint0_ata = await get_mint0_ata(provider)

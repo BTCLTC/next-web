@@ -1,11 +1,26 @@
-import { AnchorProvider, BN, Program } from "@project-serum/anchor"
+import { AnchorProvider, BN, Program } from '@project-serum/anchor'
 
-import { get_amm_account_pda, get_liquidity_locker_pda, get_mint0_ata, get_mint1_ata, get_pool_account_pda, get_pool_authority_pda, get_pool_fee_to_pda, get_pool_mint_ata, get_pool_mint_pda, get_vault_0_pda, get_vault_1_pda } from "../utils"
+import {
+  get_amm_account_pda,
+  get_liquidity_locker_pda,
+  get_mint0_ata,
+  get_mint1_ata,
+  get_pool_account_pda,
+  get_pool_authority_pda,
+  get_pool_fee_to_pda,
+  get_pool_mint_ata,
+  get_pool_mint_pda,
+  get_vault_0_pda,
+  get_vault_1_pda,
+} from '../utils'
 import { Ammv2 } from '../amm/ammv2'
-import { auth, mint0, mint1 } from "../utils/constant"
-import { mintTo, TOKEN_PROGRAM_ID } from "@solana/spl-token"
+import { auth, mint0, mint1 } from '../utils/constant'
+import { mintTo, TOKEN_PROGRAM_ID } from '@solana/spl-token'
 
-export const addLiquidity = async (provider: AnchorProvider, program: Program<Ammv2>) => {
+export const addLiquidity = async (
+  provider: AnchorProvider,
+  program: Program<Ammv2>
+) => {
   const token_decimals = 9
   let liquidity0 = 10000 * 10 ** token_decimals
   let liquidity1 = 40000 * 10 ** token_decimals
@@ -25,6 +40,18 @@ export const addLiquidity = async (provider: AnchorProvider, program: Program<Am
   const pool_fee_to_pda = await get_pool_fee_to_pda()
   const pool_mint_ata = await get_pool_mint_ata(provider)
 
+  console.log('amm_account_pda: ', amm_account_pda.toBase58())
+  console.log('pool_account_pda: ', pool_account_pda.toBase58())
+  console.log('pool_authority_pda: ', pool_authority_pda.toBase58())
+  console.log('vault_0_pda: ', vault_0_pda.toBase58())
+  console.log('vault_1_pda: ', vault_1_pda.toBase58())
+  console.log('pool_mint_pda: ', pool_mint_pda.toBase58())
+  console.log('liquidity_locker_pda: ', liquidity_locker_pda.toBase58())
+  console.log('pool_fee_to_pda: ', pool_fee_to_pda.toBase58())
+  console.log('mint0_ata: ', mint0_ata.toBase58())
+  console.log('mint1_ata: ', mint1_ata.toBase58())
+  console.log('pool_mint_ata: ', pool_mint_ata.toBase58())
+  console.log('auth: ', auth.publicKey.toBase58())
   return await program.methods
     .addLiquidity(new BN(liquidity0), new BN(liquidity1))
     .accounts({
@@ -42,5 +69,6 @@ export const addLiquidity = async (provider: AnchorProvider, program: Program<Am
       owner: auth.publicKey,
       tokenProgram: TOKEN_PROGRAM_ID,
     })
+    .signers([auth])
     .rpc()
 }
